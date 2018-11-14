@@ -17,11 +17,10 @@ app.use(methodOverride("_method"));
 
 
 
-app.get('/', (req, res) => {
-  res.redirect('/clients');
-})
 
-const reviews = require('./controllers/clients')(app);
+
+const clients = require('./controllers/clients')(app);
+const charities = require('./controllers/charities')(app);
 
 
 const port = process.env.PORT || 3000;

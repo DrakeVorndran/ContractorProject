@@ -1,2 +1,13 @@
-<h1>{{msg}}</h1>
+
+<div id="search">
+    <form action="/">
+        <input type="text" name="term">
+        <button type="submit">Search</button>
+    </form>
+    <div class="imgs">
+        {{#each charities}}
+        <p>{{this.charityName}}</p>
+        {{/each}}
+    </div>
+</div>
 
