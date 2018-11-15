@@ -4,9 +4,10 @@
         <input type="text" name="term">
         <button type="submit">Search</button>
     </form>
-    <div class="imgs">
+    <div class="charities">
         {{#each charities}}
         <p>{{this.charityName}}</p>
+        <p>{{this.currentRating.rating}}</p>
         {{/each}}
     </div>
 </div>
