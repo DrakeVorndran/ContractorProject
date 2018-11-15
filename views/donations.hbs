@@ -1,0 +1,7 @@
+{{#each donations}}
+<h1>{{this.charityName}}</h1>
+<h1>{{this.amount}}</h1>
+<form method="POST" action="/donations/{{this._id}}?_method=DELETE">
+        <button class="btn btn-link" type="submit">Delete</button>
+    </form>
+{{/each}}

@@ -21,6 +21,7 @@ app.use(methodOverride("_method"));
 
 const clients = require('./controllers/clients')(app);
 const charities = require('./controllers/charities')(app);
+const donations = require('./controllers/donations')(app);
 
 
 const port = process.env.PORT || 3000;

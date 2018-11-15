@@ -1,0 +1,12 @@
+<h1>{{charity.charityName}}</h1>
+<form action="/donations" method="POST">
+        <input type="hidden" value="{{charity.ein}}" name="charity">
+        <input type="hidden" value="{{charity.charityName}}" name="charityName">
+    <input type="number" name="amount">
+    <select name="client">
+        {{#each clients}}
+        <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+    <button type="submit">Make Donation</button>
+</form>

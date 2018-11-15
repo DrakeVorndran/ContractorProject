@@ -6,7 +6,7 @@
     </form>
     <div class="charities">
         {{#each charities}}
-        <p>{{this.charityName}}</p>
+        <a href="/charities/{{this.ein}}"<h3>{{this.charityName}}</h3>
         <p>{{this.currentRating.rating}}</p>
         {{/each}}
     </div>
