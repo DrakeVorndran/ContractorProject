@@ -1,6 +1,8 @@
-<h1>{{client.name}}</h1>
-{{#each donations}}
-<a href="/charities/{{this.charity}}"><h2>{{this.charityName}}</h2></a>
-<h2>{{this.amount}}</h2>
-
-{{/each}}
+<div class="container">
+    <h1>{{client.name}}</h1>
+    <div class="donations">
+        {{#each donations}}
+        {{>donation}}
+        {{/each}}
+    </div>
+</div>

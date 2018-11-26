@@ -1,14 +1,51 @@
 
 <div id="search">
-    <form action="/">
-        <input type="text" name="term">
-        <button type="submit">Search</button>
+    <form action="/" class="form-inline my-lg-0 ml-3 mt-3">
+<!--        <input type="text" name="term">-->
+        <input name="term" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
     <div class="charities">
-        {{#each charities}}
-        <a href="/charities/{{this.ein}}"<h3>{{this.charityName}}</h3>
-        <p>{{this.currentRating.rating}}</p>
-        {{/each}}
+        <div class="d-flex align-content-around flex-wrap">
+            {{#each charities}}
+
+
+            <div class="card m-3" style="width: 18rem;">
+                <img style="height:100px; width: 100px;" class="card-img-top" src="{{this.category.image}}" alt="Charity catagory">
+                <img style="height:15px; width: 61px;" class="card-img-top" src="{{this.currentRating.ratingImage.large}}" alt="Charity rating">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.charityName}}</h5>
+                    <p class="card-text">{{this.cause.causeName}}</p>
+                    <a href="/charities/{{this.ein}}" class="btn btn-primary">View Charity</a>
+                </div>
+            </div>
+
+
+            <!--
+<div class="col-sm-6">
+<div class="card">
+<div class="card-body">
+<img src="{{this.category.image}}">
+<h5 class="card-title">{{this.charityName}}  </h5>
+<img src="{{this.currentRating.ratingImage.large}}">
+<p class="card-text">{{this.cause.causeName}}</p>
+<a href="/charities/{{this.ein}}" class="btn btn-primary">View charity</a>
+</div>
+</div>
+
+
+</div>
+-->
+
+
+
+
+            <!--
+<a href="/charities/{{this.ein}}"<h3>{{this.charityName}}</h3>
+<p>{{this.currentRating.rating}}</p>
+-->
+            {{/each}}
+        </div>
     </div>
 </div>
 

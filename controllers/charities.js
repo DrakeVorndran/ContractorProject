@@ -1,6 +1,7 @@
 module.exports = function(app) {
     const Client = require('../models/Client');
-    
+    const Donation = require('../models/Donation');
+
     const https = require('https')
     app.get('/', function (req, res) {
         let queryString = req.query.term;
@@ -46,8 +47,11 @@ module.exports = function(app) {
                 // WHEN DATA IS FULLY RECEIVED PARSE INTO JSON
                 var parsed = JSON.parse(body);
                 Client.find().then(clients => {
-                res.render('charities-view', {charity: parsed, clients:clients})
-                    
+                    Donation.find({charity: req.params.ein}).then(donations => {
+                        res.render('charities-view', {charity: parsed, clients:clients, donations: donations})
+
+                    })
+
                 })
                 // RENDER THE HOME TEMPLATE AND PASS THE GIF DATA IN TO THE TEMPLATE
             });

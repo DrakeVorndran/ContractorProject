@@ -11,7 +11,12 @@ module.exports = function(app) {
     
     app.post('/donations',(req,res) => {
         Donation.create(req.body).then((donation) => {
+            Client.find({_id: donation.client}).then((client) => {
+                donation.clientName = client.name;
+                donation.save();
             console.log(donation);
+                
+            })
             res.redirect(`/charities/${donation.charity}`)
         })
     })
