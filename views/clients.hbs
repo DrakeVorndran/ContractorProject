@@ -1,16 +1,22 @@
-<div class="contianer">
+    <ul class="list-group">
+        
+    
     {{#each clients}}
+        <a href="/clients/{{this.id}}"><li class="list-group-item m-3">{{this.name}}</li></a>
+    
+<!--
     <div class="client">
         <a href="/clients/{{this.id}}"><h1>{{this.name}}</h1></a>
-        <form method="POST" action="/clients/{{this._id}}?_method=DELETE">
-            <button class="btn btn-link" type="submit">Delete</button>
-        </form>
-    </div>
-    {{/each}}
 
-    <form action="/clients" method="POST">
+    </div>
+-->
+    {{/each}}
+        </ul>
+
+    <form action="/clients" method="POST" class="mx-auto form-inline" style="width:400px;">
         <!--    <input type="hidden" value="{{ Object }}" name="donations">-->
-        <input type="text" name="name">
-        <button type="submit">Add client</button>
+<!--        <input type="text" name="name">-->
+        <input name="name" class="form-control mr-sm-2" type="Add Client" placeholder="Steve Jobs" aria-label="Add Client">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add Client</button>
+<!--        <button type="submit" class="btn btn-primary">Add client</button>-->
     </form>
-</div>

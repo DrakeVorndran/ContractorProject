@@ -10,12 +10,14 @@
             }
         </style>
         {{#each donations}}
-        {{>donation}}
+        <a href="/charities/{{this.charity}}">
+            {{>donation}}
+        </a>
         {{/each}}
     </div>
-    
+
     <hr>
     <form method="POST" action="/clients/{{this._id}}?_method=DELETE">
-            <button class="btn btn-danger" type="submit">Delete Client</button>
-        </form>
+        <button class="btn btn-danger" type="submit">Delete Client</button>
+    </form>
 </div>

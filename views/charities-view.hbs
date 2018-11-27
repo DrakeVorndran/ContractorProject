@@ -20,7 +20,9 @@
         }
     </style>
     {{#each donations}}
-    {{>donation}}
+    <a href="/clients/{{this.client}}">
+        {{>donation}}
+    </a>
     {{/each}}
-    
+
 </div>
