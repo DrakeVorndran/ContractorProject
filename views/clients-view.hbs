@@ -1,8 +1,21 @@
 <div class="container">
-    <h1>{{client.name}}</h1>
+    <h1 style="text-align:center;">{{client.name}}</h1>
     <div class="donations">
+        <style>
+            .charity-name{
+                display: block;
+            }
+            .client-name{
+                display: none;
+            }
+        </style>
         {{#each donations}}
         {{>donation}}
         {{/each}}
     </div>
+    
+    <hr>
+    <form method="POST" action="/clients/{{this._id}}?_method=DELETE">
+            <button class="btn btn-danger" type="submit">Delete Client</button>
+        </form>
 </div>

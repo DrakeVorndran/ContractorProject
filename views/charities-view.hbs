@@ -11,6 +11,14 @@
         </select>
         <button type="submit">Make Donation</button>
     </form>
+    <style>
+        .charity-name{
+            display: none;
+        }
+        .client-name{
+            display: block;
+        }
+    </style>
     {{#each donations}}
     {{>donation}}
     {{/each}}
