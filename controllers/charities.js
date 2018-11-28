@@ -5,10 +5,25 @@ module.exports = function(app) {
     const https = require('https')
     app.get('/', function (req, res) {
         let queryString = req.query.term;
+        let sortString = req.query.sort;
+        let scopeString = req.query.scopeOfWork;
         // ENCODE THE QUERY STRING TO REMOVE WHITE SPACES AND RESTRICTED CHARACTERS
         let term = encodeURIComponent(queryString);
+        let sort = encodeURIComponent(sortString);
+        let scope = encodeURIComponent(scopeString);
+        console.log(term,sort,scope);
         // PUT THE SEARCH TERM INTO THE GIPHY API SEARCH URL
-        const url=`https://api.data.charitynavigator.org/v2/Organizations?app_id=e0c53d98&app_key=b07c4b7aa260ec37497bf26a0481e9d4&pageSize=50&search=${term}&rated=true`
+        let url=`https://api.data.charitynavigator.org/v2/Organizations?app_id=e0c53d98&app_key=b07c4b7aa260ec37497bf26a0481e9d4&pageSize=50&search=${term}&rated=true&ScopeOfWork=${scope}`
+        if(scope == undefined){
+            console.log(scope)
+            url+=`&ScopeOfWork=${scope}`;
+        }
+
+        if(sort != 'None'){
+            console.log(sort)
+            
+            url+=`&sort=${sort}`;
+        }
 
 
         https.get(url, function(response) {
