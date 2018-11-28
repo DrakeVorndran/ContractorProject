@@ -11,16 +11,14 @@ module.exports = function(app) {
         let term = encodeURIComponent(queryString);
         let sort = encodeURIComponent(sortString);
         let scope = encodeURIComponent(scopeString);
-        console.log(term,sort,scope);
+        let inputs = {sort: sort, scope: scope}
+        if(term!='undefined'){
+            inputs.term = term;
+        }
         // PUT THE SEARCH TERM INTO THE GIPHY API SEARCH URL
         let url=`https://api.data.charitynavigator.org/v2/Organizations?app_id=e0c53d98&app_key=b07c4b7aa260ec37497bf26a0481e9d4&pageSize=50&search=${term}&rated=true&ScopeOfWork=${scope}`
-        if(scope == undefined){
-            console.log(scope)
-            url+=`&ScopeOfWork=${scope}`;
-        }
 
-        if(sort != 'None'){
-            console.log(sort)
+        if(sort != 'None' && sort!="undefined"){
             
             url+=`&sort=${sort}`;
         }
@@ -40,7 +38,7 @@ module.exports = function(app) {
                 // WHEN DATA IS FULLY RECEIVED PARSE INTO JSON
                 var parsed = JSON.parse(body);
                 // RENDER THE HOME TEMPLATE AND PASS THE GIF DATA IN TO THE TEMPLATE
-                res.render('home', {charities: parsed})
+                res.render('home', {charities: parsed, inputs: inputs})
             });
         });
     })
