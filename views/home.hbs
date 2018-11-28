@@ -1,9 +1,37 @@
 
+<hr>
 <div id="search" style="width: 100%">
-    <form action="/" class="form-inline my-lg-0 ml-3 mt-3">
-<!--        <input type="text" name="term">-->
-        <input name="term" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <form action="/" class=" my-lg-0 ml-3 mt-3">
+
+
+        <!--        <input type="text" name="term">-->
+        <div class="form-inline">
+            <input name="term" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </div>
+        <details><summary>Advanced</summary>
+            
+            <label>Sort type</label>
+            <select name="sort">
+                <option value="">None</option>
+                <option value="sort=NAME:ASC">Alphabetical</option>
+                <option value="sort=RATING:DESC">Rating</option>
+                <option value="sort=RELEVANCE:DESC">Relevance</option>
+            </select>
+            
+            
+            <label for="scope-select">Scope of work</label>
+            <select name="scope" id="scope-select">
+                <option name="ALL">Not selected</option>
+                <option name="NATIONAL">National</option>
+                <option name="REGIONAL">Regional</option>
+                <option name="INTERNATIONAL">International</option>
+            </select>
+            
+            
+            
+        </details>
+
     </form>
     <div class="charities">
         <div class="d-flex align-content-around flex-wrap">
