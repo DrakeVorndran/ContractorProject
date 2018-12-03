@@ -18,6 +18,7 @@ module.exports = function(app) {
     app.get('/clients/:id',(req,res) => {
         Client.findById(req.params.id).then((client) => {
             Donation.find({client: req.params.id}).then((donations) => {
+                if(req.header('Content-Type') == 'application/json') { return res.send({donations: donations}); console.log('json')}
                 console.log(donations)
                 res.render('clients-view',{client: client, donations: donations})
 
