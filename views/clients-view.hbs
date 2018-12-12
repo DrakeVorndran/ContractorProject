@@ -17,6 +17,7 @@
     </div>
 
     <hr>
+    <a href="/clients/{{client._id}}/edit"><button class="btn btn-warning">edit</button></a>
     <form method="POST" action="/clients/{{client._id}}?_method=DELETE">
         <button class="btn btn-danger" type="submit">Delete Client</button>
     </form>
